@@ -43,9 +43,3 @@
 - 本文
 - 評価（1〜5の星評価）
 - 作成日
-
-## データ設計 ER図
-[![Image from Gyazo](https://i.gyazo.com/160ea0cf4835493d6cbeab545f5a87bc.png)](https://gyazo.com/160ea0cf4835493d6cbeab545f5a87bc)
-
-## 開発記録
-[![Image from Gyazo](https://i.gyazo.com/7af04302b790d9b555de061a44875be2.png)](https://gyazo.com/7af04302b790d9b555de061a44875be2)
