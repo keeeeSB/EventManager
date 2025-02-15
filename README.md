@@ -1,24 +1,51 @@
-# README
+# EventManager イベント管理アプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+株式会社ソニックガーデンさんの技術試験の復習です。
 
-Things you may want to cover:
+## ユーザー画面の要件
+- ユーザはユーザ登録して、イベントを作成できる
+- ユーザは自身が作成したイベントを編集、削除できる
+- ユーザは他のユーザが作成したイベントに参加申し込みができる
+- イベントはカテゴリーで分類して保存できる（例: 音楽、スポーツ、ビジネス、趣味）
+- ユーザは興味のあるイベントをお気に入りに追加できる
+- トップページには、未開催でイベントを人気順で一覧表示
+- ユーザは自身が参加予定のイベントのリストを閲覧できる
+- ユーザは開催後のイベントに対して５段階のレビューを残せる
+- 平均レビューランキングを総合とカテゴリごとに表示できる
 
-* Ruby version
+## サイト管理者画面の要件
+- サイト管理者は全てのユーザが作成したイベントを管理できる
+- イベントの参照、更新、削除ができること
+- サイト管理者は全てのレビューを管理できる
+- レビューの参照、削除ができること
+- サイト管理者は全てのユーザを管理できる
+- ユーザの参照、更新、削除ができること
 
-* System dependencies
+## データ項目
+### ユーザの項目
+- メールアドレス
+- パスワード
+- 名前
+- プロフィール写真
+- 自己紹介
 
-* Configuration
+### イベントの項目
+- タイトル
+- 説明
+- 開催日
+- 開催時間
+- 場所
+- カテゴリー
+- 作成日
+- 更新日
 
-* Database creation
+### レビュー・フィードバックの項目
+- 本文
+- 評価（1〜5の星評価）
+- 作成日
 
-* Database initialization
+## データ設計 ER図
+[![Image from Gyazo](https://i.gyazo.com/160ea0cf4835493d6cbeab545f5a87bc.png)](https://gyazo.com/160ea0cf4835493d6cbeab545f5a87bc)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発記録
+[![Image from Gyazo](https://i.gyazo.com/7af04302b790d9b555de061a44875be2.png)](https://gyazo.com/7af04302b790d9b555de061a44875be2)
