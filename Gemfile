@@ -37,6 +37,8 @@ gem "bootsnap", require: false
 gem "bootstrap"
 gem "jquery-rails"
 gem "sassc-rails"
+gem "devise"
+gem "carrierwave"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -47,6 +49,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "factory_bot_rails"
+  gem "capybara"
 end
 
 group :development do
@@ -54,4 +59,10 @@ group :development do
   gem "web-console"
   gem "better_errors"
   gem "binding_of_caller"
+end
+
+group :test do
+  gem "rspec-rails"
+  gem "webdrivers"
+  gem "launchy"
 end
