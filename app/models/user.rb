@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :confirmable
 
   mount_uploader :profile_image, ProfileImageUploader
+
+  validates :name, presence: true
+  validates :bio, length: { maximum: 100 }
 end
