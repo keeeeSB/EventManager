@@ -22,10 +22,25 @@ RSpec.describe "新規登録", type: :system do
     mail = ActionMailer::Base.deliveries.last
 
     aggregate_failures do
-      expect(mail.to).to eq ["test@example.com"]
-      expect(mail.from).to eq ["support@example.com"]
+      expect(mail.to).to eq [ "test@example.com" ]
+      expect(mail.from).to eq [ "support@example.com" ]
       expect(mail.subject).to eq "メールアドレス確認メール"
       expect(mail.body).to match "ようこそ"
     end
+  end
+
+  scenario "本人確認用メールのリンクをクリックすると、アカウントを有効化できる" do
+    user = User.new(
+      name: "テストユーザー",
+      email: "test@example.com",
+      password: "password",
+      confirmation_token: "sample_token",
+      confirmation_sent_at: Time.current
+    )
+
+    visit user_confirmation_url(confirmation_token: user.confirmation_token)
+
+    expect(page).to have_content "メールアドレスが確認できました。"
+    expect(user.reload.confirmed?).to be true
   end
 end
