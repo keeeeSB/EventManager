@@ -30,7 +30,7 @@ RSpec.describe "新規登録", type: :system do
   end
 
   scenario "本人確認用メールのリンクをクリックすると、アカウントを有効化できる" do
-    user = User.new(
+    user = User.create!(
       name: "テストユーザー",
       email: "test@example.com",
       password: "password",
