@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   let(:category) { FactoryBot.create(:category) }
-  
+
   it "ファクトリーが正常に動く" do
     expect(FactoryBot.build(:category)).to be_valid
   end
