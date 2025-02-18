@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "新規登録", type: :system do
+RSpec.describe "ユーザー登録機能", type: :system do
   include ActiveJob::TestHelper
 
   scenario "ユーザーは新規登録をすると、本人確認用のメールが送信される" do
