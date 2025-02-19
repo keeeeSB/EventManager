@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  assepts_nested_attributes_for :category
 
   validates :title, presence: true, length: { maximum: 20 }
   validates :description, presence: true, length: { maximum: 100 }
