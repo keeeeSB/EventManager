@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all.order(start_time: :asc)
+    @events = Event.includes(:users, :categories).order(start_time: :asc)
   end
 
   def new
