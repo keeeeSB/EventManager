@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def new
     @event = current_user.events.build
+    @categories = Category.all
     @event.build_category
   end
 
