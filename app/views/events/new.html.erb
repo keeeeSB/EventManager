@@ -15,7 +15,7 @@
 
   <div class="mb-3">
     <%= f.label :start_time, "開催日時", class: "form-label" %>
-    <%= f.date_field :start_time, class: "form-control" %>
+    <%= f.datetime_field :start_time, class: "form-control" %>
   </div>
 
   <div class="mb-3">
@@ -30,12 +30,12 @@
                                  { include_blank: "カテゴリーを選択" }, class: "form-control" %>
     </div>
 
-    <p>or</p>
+    <p class="text-center">or</p>
   <% end %>
   
   <div class="mb-4">
     <%= f.fields_for :category do |category_f| %>
-      <%= category_f.label :name, "カテゴリー名", class: "form-label" %>
+      <%= category_f.label :name, "新しいカテゴリーを作成", class: "form-label" %>
       <%= category_f.text_field :name, class: "form-control", placeholder: "例: スポーツ、音楽、食べ物" %>
     <% end %>
   </div>
