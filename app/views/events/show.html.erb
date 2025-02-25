@@ -1,0 +1,35 @@
+<div class="card shadow-lg border-0">
+  <div class="card-body text-center">
+    <h2 class="card-title mb-4"><%= @event.title %></h2>
+
+    <p class="text-muted"><%= @event.start_time.strftime('%Y年%m月%d日 %H:%M') %> 開催</p>
+
+    <div class="mb-3">
+      <h5 class="fw-bold">説明</h5>
+      <p class="text-muted"><%= @event.description %></p>
+    </div>
+
+    <div class="mb-3">
+      <h5 class="fw-bold">開催場所</h5>
+      <p class="text-muted"><%= @event.location %></p>
+    </div>
+
+    <% if @event.category.present? %>
+      <div class="mb-3">
+        <h5 class="fw-bold">カテゴリー</h5>
+        <span class="badge bg-primary fs-6"><%= @event.category.name %></span>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <h5 class="fw-bold">作成者</h5>
+      <p class="text-muted"><%= @event.user.name %></p>
+    </div>
+
+    <div class="text-center mt-4">
+      <%= link_to "編集", edit_user_event_path(current_user, @event), class: "btn btn-warning me-2" %>
+      <%= link_to "削除", user_event_path(current_user, @event),
+                         data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
