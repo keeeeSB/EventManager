@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ProfileImageUploader
 
+  has_many :events, dependent: :destroy
+
   validates :name, presence: true
   validates :bio, length: { maximum: 100 }
 end
