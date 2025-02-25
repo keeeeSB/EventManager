@@ -1,0 +1,70 @@
+ja:
+  # アプリ全体の共通メッセージ
+  common:
+    save: "保存"
+    edit: "編集"
+    delete: "削除"
+    back: "戻る"
+    cancel: "キャンセル"
+    confirm: "本当によろしいですか？"
+    error: "エラーが発生しました"
+    success: "処理が成功しました"
+
+  # フラッシュメッセージ
+  flash:
+    create_success: "%{model}を作成しました。"
+    update_success: "%{model}を更新しました。"
+    delete_success: "%{model}を削除しました。"
+    create_error: "%{model}の作成に失敗しました。"
+    update_error: "%{model}の更新に失敗しました。"
+    delete_error: "%{model}の削除に失敗しました。"
+
+  # ActiveRecord の翻訳
+  activerecord:
+    models:
+      user: "ユーザー"
+      event: "イベント"
+      category: "カテゴリー"
+    attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+      event:
+        title: "タイトル"
+        description: "説明"
+        start_time: "開催日時"
+        location: "開催場所"
+        category: "カテゴリー"
+
+  # バリデーションメッセージ
+  errors:
+    messages:
+      blank: "を入力してください"
+      invalid: "が無効です"
+      too_short: "は%{count}文字以上で入力してください"
+      too_long: "は%{count}文字以下で入力してください"
+      taken: "は既に使用されています"
+    format: "%{attribute} %{message}"
+
+  # ナビゲーション
+  navigation:
+    home: "ホーム"
+    events: "イベント一覧"
+    my_page: "マイページ"
+    login: "ログイン"
+    logout: "ログアウト"
+    register: "新規登録"
+
+  # 日付と時間フォーマット
+  time:
+    formats:
+      default: "%Y年%m月%d日 %H:%M"
+      short: "%m/%d %H:%M"
+      long: "%Y年%m月%d日 (%a) %H:%M"
+  date:
+    formats:
+      default: "%Y年%m月%d日"
+      short: "%m/%d"
+      long: "%Y年%m月%d日 (%a)"

@@ -1,13 +1,13 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [ :edit, :update, :destroy ]
+  before_action :set_categories, only: [ :new, :create, :edit, :update ]
 
   def index
-    @events = Event.includes(:users, :categories).order(start_time: :asc)
+    @events = Event.includes(:user, :category).order(start_time: :asc)
   end
 
   def new
     @event = current_user.events.build
-    @categories = Category.all
     @event.build_category
   end
 
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = current_uset.events.find(params[:id])
+    @event = current_user.events.find(params[:id])
     if @event.update(event_params)
       flash[:success] = "イベント情報を更新しました。"
       redirect_to user_event_path(current_user, @event)
@@ -57,5 +57,9 @@ class EventsController < ApplicationController
 
     def set_event
       @event = current_user.events.find(params[:id])
+    end
+
+    def set_categories
+      @categories = Category.all
     end
 end

@@ -1,12 +1,13 @@
-.card {
+.custom-card {
+  display: block;
   border-radius: 10px;
   padding: 20px;
   background: #fff;
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.card:hover {
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+.custom-card:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
 .text-muted {
