@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [ :edit, :update, :destroy ]
 
   def index
-    @events = Event.includes(:users, :categories).order(start_time: :asc)
+    @events = Event.includes(:user, :category).order(start_time: :asc)
   end
 
   def new
