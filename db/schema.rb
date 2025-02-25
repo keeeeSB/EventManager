@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_19_003031) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_25_191348) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -29,6 +29,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_19_003031) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_favorites_on_event_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +62,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_19_003031) do
 
   add_foreign_key "events", "categories"
   add_foreign_key "events", "users"
+  add_foreign_key "favorites", "events"
+  add_foreign_key "favorites", "users"
 end
