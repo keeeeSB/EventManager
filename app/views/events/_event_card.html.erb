@@ -2,6 +2,9 @@
   <div class="custom-card shadow-sm border-0 mb-3">
     <div class="card-body text-center">
       <h3 class="card-title text-success mb-3"><%= event.title %></h3>
+      <% if user_signed_in? %>
+        <%= favorite_button(event) %>
+      <% end %>
       <p class="text-muted"><%= event.start_time.strftime('%Y年%m月%d日 %H:%M') %> 開催</p>
       <span class="badge bg-primary"><%= event.category.name %></span>
       <p class="text-muted mt-2"><strong>作成者:</strong> <%= event.user.name %></p>

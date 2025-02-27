@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :show ] do
     resources :events, only: [ :new, :create, :show, :edit, :update, :destroy ]
   end
-  resources :events, only: [ :index ]
+  resources :events, only: [ :index ] do
+    resources :favorites, only: [ :create, :destroy ]
+  end
 end
