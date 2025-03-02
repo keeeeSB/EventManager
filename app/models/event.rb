@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_user, through: :favorites, source: :event
 
   accepts_nested_attributes_for :category, reject_if: :category_blank?
 
