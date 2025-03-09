@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_events, through: :favorites, source: :event
-  has_one :review, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :review_events, through: :reviews, source: :event
 
   validates :name, presence: true
