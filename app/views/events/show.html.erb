@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<div class="mt-4">
+<div class="m-4">
   <% if @event.reviews.any? %>
     <h4 class="mb-3">レビュー</h4>
     <% @event.reviews.each do |review| %>
@@ -43,7 +43,7 @@
   <% end %>
 </div>
 
-<div class="mt-5">
+<div class="m-4">
   <h4 class="mb-3">レビューを投稿する</h4>
   <% if current_user.reviews.exists?(event_id: @event.id) %>
     <p class="text-center">既にレビュー済みです。</p>
