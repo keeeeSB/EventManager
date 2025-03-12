@@ -15,7 +15,7 @@ RSpec.describe "Reviews", type: :system do
       choose "star5"
       fill_in "コメント", with: "とてもよかったです。"
       click_button "投稿"
-    }.to change(Review, :count).by(1)
+    }.to change(event.reviews, :count).by(1)
 
     expect(page).to have_content "レビューを投稿しました。"
     expect(page).to have_content "とてもよかったです。"
