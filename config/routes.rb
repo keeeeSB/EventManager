@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   resources :events, only: [ :index ] do
     resources :favorites, only: [ :create, :destroy ]
+    resources :reviews,   only: [ :create, :edit, :update, :destroy ]
   end
 end
