@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
 
   def update
     @review.update!(review_params)
+    flash.now[:success] = "レビューを更新しました。"
     redirect_to user_event_path(@event.user, @event)
   end
 
