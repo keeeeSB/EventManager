@@ -38,7 +38,7 @@
   <% if @event.reviews.any? %>
     <h4 class="mb-3">レビュー</h4>
     <% @event.reviews.each do |review| %>
-      <%= render "review", event: @event, review: review %>
+      <%= render "reviews/review", event: @event, review: review %>
     <% end %>
   <% end %>
 </div>
@@ -48,6 +48,6 @@
   <% if current_user.reviews.exists?(event_id: @event.id) %>
     <p class="text-center">既にレビュー済みです。</p>
   <% else %>
-    <%= render "review_form" %>
+    <%= render "reviews/form" %>
   <% end %>
 </div>
