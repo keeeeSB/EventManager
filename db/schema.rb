@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_17_194945) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.string "status", null: false
+    t.string "status", default: "pending", null: false
     t.integer "user_id", null: false
     t.integer "event_id", null: false
     t.datetime "created_at", null: false
