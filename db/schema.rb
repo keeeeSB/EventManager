@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_05_233420) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_17_194945) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -38,6 +38,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_05_233420) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_favorites_on_event_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.string "status", null: false
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_participations_on_event_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -75,6 +85,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_05_233420) do
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "events"
   add_foreign_key "favorites", "users"
+  add_foreign_key "participations", "events"
+  add_foreign_key "participations", "users"
   add_foreign_key "reviews", "events"
   add_foreign_key "reviews", "users"
 end
