@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :favorite_events, through: :favorites, source: :event
   has_many :reviews, dependent: :destroy
   has_many :review_events, through: :reviews, source: :event
+  has_many :participations, dependent: :destroy
+  has_many :events, through: :participations
 
   validates :name, presence: true
   validates :bio, length: { maximum: 100 }

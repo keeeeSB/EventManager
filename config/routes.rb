@@ -9,5 +9,11 @@ Rails.application.routes.draw do
   resources :events, only: [ :index ] do
     resources :favorites, only: [ :create, :destroy ]
     resources :reviews,   only: [ :create, :edit, :update, :destroy ]
+    resources :participations, only: [ :create, :destroy ] do
+      member do
+        patch :approve
+        patch :reject
+      end
+    end
   end
 end

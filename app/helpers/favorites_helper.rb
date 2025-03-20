@@ -1,6 +1,6 @@
 module FavoritesHelper
-  def favorite_button(event)
-    if current_user.favorites.exists?(event_id: event.id)
+  def favorite_button(event, user)
+    if event.favorites.exists?(user_id: user.id)
       link_to event_favorite_path(event, current_user.favorites.find_by(event_id: event.id)),
               data: { turbo_method: :delete } do
         image_tag "star-fill.svg", alt: "お気に入り解除", class: "me-2"
