@@ -35,6 +35,58 @@
 </div>
 
 <div class="m-4">
+  <h4 class="mb-3">参加者リスト</h4>
+  <% if @event.participations.any? %>
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>ステータス</th>
+          <% if @event.user == current_user %>
+            <th class="text-center">アクション</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.participations.each do |participation| %>
+          <tr>
+            <td><%= participation.user.name %></td>
+            <td>
+              <% case participation.status %>
+                <% when "pending" %>
+                  <span class="badge bg-warning">承認待ち</span>
+                <% when "approved" %>
+                  <span class="badge bg-success">承認済み</span>
+                <% when "rejected" %>
+                  <span class="badge bg-danger">却下</span>
+              <% end %>
+            </td>
+            <% if @event.user == current_user && participation.status == "pending" %>
+              <td class="text-center">
+                <%= link_to approve_event_participation_path(@event, participation),
+                  data: { turbo_method: :patch },
+                  class: "btn btn-sm btn-success me-1" do %>
+                  ✅ 承認
+                <% end %>
+
+                <%= link_to reject_event_participation_path(@event, participation),
+                  data: { turbo_method: :patch },
+                  class: "btn btn-sm btn-danger" do %>
+                  ❌ 却下
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="text-center text-muted">まだ参加者がいません 😢</p>
+  <% end %>
+</div>
+
+
+<div class="m-4">
   <% if @event.reviews.any? %>
     <h4 class="mb-3">レビュー</h4>
     <% @event.reviews.each do |review| %>

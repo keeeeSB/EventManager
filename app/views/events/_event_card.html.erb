@@ -1,11 +1,12 @@
 <div class="custom-card shadow-sm border-0 mb-3">
   <div class="card-body text-center">
-    <%= link_to user_event_path(event.user, event), class: "text-decoration-none" do %>
-      <h3 class="card-title text-success mb-3"><%= event.title %></h3>
-    <% end %>
+    <h3 class="card-title mb-3">
+      <%= link_to event.title, user_event_path(event.user, event), class: "text-success text-decoration-none" %>
+    </h3>
     <% if user_signed_in? %>
-      <div class="d-flex justify-content-end">
-        <%= favorite_button(event) %>
+      <div class="d-flex justify-content-end gap-2">
+        <%= participation_button(event, current_user) %>
+        <%= favorite_button(event, current_user) %>
       </div>
     <% end %>
     <p class="text-muted"><%= event.start_time.strftime('%Y年%m月%d日 %H:%M') %> 開催</p>
